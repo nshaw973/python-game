@@ -1,6 +1,6 @@
 from pathlib import Path
-from Models.Characters.Player.Player import Player
-from Models.Other.Color import Color
+from Models import Player
+from core import user_input, Color
 save_path = Path('game/save')
 
 
@@ -24,7 +24,7 @@ def select_character():
         # Get user input
         try:
             print('Enter a number (0 to cancel):')
-            choice = input(Color.blue('>>> ')).strip()
+            choice = user_input()
 
             if choice == '0':
                 return None

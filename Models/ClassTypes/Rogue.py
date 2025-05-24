@@ -12,6 +12,7 @@ class Rogue:
         'defence': 7,
         'speed': 3,
         }
+    
     @staticmethod
     def strating_equipment():
         return {

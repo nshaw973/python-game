@@ -1,13 +1,10 @@
 import json
 from pathlib import Path
 save_path = Path('game/save')
-# Color Decoration for text
-from Models.Other.Color import Color
+# Utilities
+from core import user_input, Color
 # Archetype Models
-from Models.ClassTypes.Mage import Mage
-from Models.ClassTypes.Fighter import Fighter
-from Models.ClassTypes.Rogue import Rogue
-from Models.ClassTypes.Cleric import Cleric
+from Models import Mage, Fighter, Rogue, Cleric
 
 class Player:
 
@@ -15,7 +12,7 @@ class Player:
         # --- Name Selection ---
         while True:
             print(f"What is your character's {Color.red('NAME')}?\n(8 Characters Max):")
-            name = input(Color.blue('>>> ')).strip
+            name = user_input()
             
             if not (1 <= len(name) <= 8):
                 print("Name must be between 1 and 8 characters")
@@ -36,15 +33,24 @@ class Player:
             'cleric': Cleric.stats()
         }
         
+            # Different Available Classes
+        archetypes = ('fighter', 'mage', 'rogue', 'cleric')
+        # Choose
         while True:
-            c_class = input(f"Choose a class:\n{Color.red('1. Fighter')}\n{Color.cyan('2. Mage')}\n{Color.green('3. Rogue')}\n{Color.yellow('4. Cleric')}\n> ")
-            c_class = input(Color.blue('>>> ')).strip().lower()
-            if c_class not in classes:
-                print(Color.red("Please input one of the provided classes."))
+            print(f"Choose a class (1-4):\n"
+                f"{Color.red('1. Fighter')}\n"
+                f"{Color.cyan('2. Mage')}\n"
+                f"{Color.green('3. Rogue')}\n"
+                f"{Color.yellow('4. Cleric')}")
+            
+            choice = user_input()
+            if not choice.isdigit() or not (1 <= int(choice) <= 4):
+                print(Color.red("Please enter a number between 1-4."))
                 continue
             
-            self.c_class = c_class.capitalize()
-            stats = classes[c_class]
+            class_index = int(choice) - 1  # Convert to 0-based index
+            self.archetype = archetypes[class_index]
+            stats = classes[self.archetype]
             
             # Assign stats
             self.level = 1
@@ -55,14 +61,14 @@ class Player:
             self.speed = stats["speed"]
             break
         
-        print(f"\nCharacter created: {self.name} the {self.c_class}")
+        print(f"\nCharacter created: {self.name} the {self.archetype}")
         print(f"Stats:\nHP={self.hp}\nATK={self.attack}\nMAG={self.magic}\nDEF={self.defence}\nSPD={self.speed}")
 
     # Convert player into json file.
     def to_dict(self):
         return {
             "name": self.name,
-            "class": self.c_class,
+            "class": self.archetype,
             "level": self.level,
             "stats": {
                 "hp": self.hp,

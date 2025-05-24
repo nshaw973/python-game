@@ -1,5 +1,5 @@
 from pathlib import Path
-from Models.Characters.Player.Player import Player
+from Models import Player
 save_path = Path('game/save')
 
 def create_character():

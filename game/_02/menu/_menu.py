@@ -1,12 +1,13 @@
-import sys
 from .view_stats import view_stats
+from core import user_input, exit_game
 
 def game_menu(player):
     while True:
         print('=====================================')
         print(f"{player['name']} the {player['class']}")
         print('1. Town\n2. Dungeon\n3. Rest\n4. View Character\n0. Quit')
-        choice = input('Where would you like to go?: ')
+        print('Where would you like to go?:')
+        choice = user_input()
         match int(choice):
             case 1:
                 print('loading town...')
@@ -21,12 +22,8 @@ def game_menu(player):
                 view_stats(player)
                 break
             case 0:
-                end = input('End session?(y to exit): ')
-                if end == 'y':
-                    print('Exiting\nBye!')
-                    sys.exit(0)
-                else:
-                    continue
+                exit_game()
+                continue
             case _:
                 print('Option not available...')
                 continue

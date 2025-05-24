@@ -1,4 +1,4 @@
-from Models.Other.Color import Color
+from core import Color
 
 def view_stats(player):
     print(f"<<<=======||{Color.cyan(player['name'])}||========>>>")
