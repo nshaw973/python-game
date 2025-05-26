@@ -1,0 +1,15 @@
+{
+    "scratch": {
+        "damage": 3,
+        "cooldown": 1,
+        "type": "physical"
+    },
+    "dodge": {
+        "evasion_chance": 0.5,
+        "stamina_cost": 2
+    },
+    "bite": {
+        "damage": 1,
+        "type": "physical"
+    }
+}

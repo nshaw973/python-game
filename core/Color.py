@@ -41,3 +41,16 @@ class Color:
         code = random.choice(colors)
         return f"\033[{code}m{text}\033[0m"
                 
+    @staticmethod
+    def get_class_color(text: str) -> str:
+        match text:
+            case 'fighter':
+                return f"\033[31mFighter\033[0m"
+            case 'mage':
+                return f"\033[36mMage\033[0m"
+            case 'rogue':
+                return f"\033[32mRogue\033[0m"
+            case 'cleric':
+                return f"\033[33mCleric\033[0m"
+            case _:
+                return 'ERROR'

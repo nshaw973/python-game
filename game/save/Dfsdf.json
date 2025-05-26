@@ -1,0 +1,19 @@
+{
+    "name": "Dfsdf",
+    "class": "mage",
+    "level": 1,
+    "stats": {
+        "hp": 13,
+        "attack": 10,
+        "magic": 1,
+        "defence": 7,
+        "speed": 3
+    },
+    "equipment": {
+        "weapon": "",
+        "armor": "",
+        "ring": "",
+        "pendant": ""
+    },
+    "inventory": {}
+}

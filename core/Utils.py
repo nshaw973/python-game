@@ -2,8 +2,10 @@ import sys
 from .Color import Color
 
 def user_input():
-    user_input = input(Color.blue('>>> ')).strip()
-    return user_input
+    # User should only be inputing numbers
+    while True:
+        user_input = input(Color.blue('>>> ')).strip().lower()
+        return user_input
 
 def exit_game():
     print('Would you like to exit the game? (y to exit):')
@@ -13,3 +15,11 @@ def exit_game():
         sys.exit(0)
     else:
         return
+
+def top_break(str):
+    print(f'<<<========||{str}||========>>>')
+
+def bottom_break(str):
+    length = len(str)
+    print(f'<<<========||{'=' * length}||========>>>')
+ 

@@ -1,6 +1,6 @@
 from pathlib import Path
 from Models import Player
-from core import user_input, Color
+from core import user_input, top_break, bottom_break, Color
 save_path = Path('game/save')
 
 
@@ -16,6 +16,7 @@ def select_character():
             return None
         
         # Options for Saves
+        top_break(Color.green('SAVES'))
         print("Select a Character:")
         for i, save in enumerate(saves, 1):
             print(f"{i}. {Color.random(save)}")
@@ -33,6 +34,7 @@ def select_character():
             if 0 <= selected_index < len(saves):
                 selected_char = saves[selected_index]
                 print(f"Loading {selected_char}...")
+                bottom_break('save')
 
                 # Load Character
                 data = Player.load_from_file(selected_char)
@@ -44,4 +46,3 @@ def select_character():
                 print('Invalid Selection!')
         except ValueError:
             print('Please enter a valid number!')
-        

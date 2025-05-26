@@ -61,7 +61,7 @@ class Player:
             self.speed = stats["speed"]
             break
         
-        print(f"\nCharacter created: {self.name} the {self.archetype}")
+        print(f"\nCharacter created: {self.name} the {Color.get_class_color(self.archetype)}")
         print(f"Stats:\nHP={self.hp}\nATK={self.attack}\nMAG={self.magic}\nDEF={self.defence}\nSPD={self.speed}")
 
     # Convert player into json file.
