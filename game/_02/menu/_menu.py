@@ -1,7 +1,5 @@
 from .view_stats import view_stats
-# Delete when publishing
-from .testing import level_up_test
-from core import user_input, exit_game, bottom_break, top_break, Color, Roll
+from core import user_input, exit_game, bottom_break, top_break, Color
 
 def game_menu(player):
     while True:

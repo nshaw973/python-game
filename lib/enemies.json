@@ -4,6 +4,7 @@
         "hp": 4,
         "defence": 2,
         "speed": 5,
+        "exp": 2,
         "abilities": [
             "scratch",
             "dodge"
@@ -12,6 +13,8 @@
     "Bat": {
         "name": "Bat",
         "hp": 2,
+        "defence": 0,
+        "exp": 1,
         "speed": 3,
         "abilities": [
             "bite"
