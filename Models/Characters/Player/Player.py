@@ -32,6 +32,8 @@ class Player:
         self.ring = ''
         self.pendant = ''
         self.inventory = []
+        # Game Data
+        self.dungeons = ['forest', 'cave']
         # --- Character Creation ---
         # Choose Name
         while True:

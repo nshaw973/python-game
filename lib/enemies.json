@@ -1,5 +1,5 @@
 {
-   "Goblin": {
+   "goblin": {
         "name": "Goblin",
         "hp": 4,
         "defence": 2,
@@ -10,7 +10,7 @@
             "dodge"
         ]
     },
-    "Bat": {
+    "bat": {
         "name": "Bat",
         "hp": 2,
         "defence": 0,

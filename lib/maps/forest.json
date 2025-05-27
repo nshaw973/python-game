@@ -1,0 +1,8 @@
+{
+    "name": "Forest",
+    "floors": 10,
+    "enemies": [
+        {"type": "goblin"}
+    ]
+
+}

@@ -1,4 +1,5 @@
 from .view_stats import view_stats
+from .view_dungeons import view_dungeons
 from core import user_input, exit_game, bottom_break, top_break, Color
 
 def game_menu(player):
@@ -15,7 +16,8 @@ def game_menu(player):
                 print('loading town...')
                 break
             case '2':
-                print('loading dungeon')
+                dungeon = view_dungeons(player)
+                
                 break
             case '3':
                 print('resting...')
