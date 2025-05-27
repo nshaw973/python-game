@@ -2,7 +2,7 @@ from core import Color, bottom_break
 
 def view_stats(player):
     print(f"<<<========||{Color.cyan(player['name'])}||========>>>")
-    print(f"Class: {Color.get_class_color(player['class'])}")
+    print(f"Class: {Color.get_class_color(player['archetype'])}")
     print(f"Level: {player['level']}")
     print(Color.blue('Stats:'))
     print('----------')

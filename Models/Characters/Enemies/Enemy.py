@@ -1,11 +1,13 @@
 import json
+from pathlib import Path
 from core import Color
+path = Path('lib')
 
 class Enemy:
 
-    with open("enemies.json") as f:
+    with open(f"{path}/enemies.json") as f:
             _ENEMIES_DATA = json.load(f)
-    with open("abilities.json") as f:
+    with open(f"{path}/abilities.json") as f:
             _ABILITIES_DATA = json.load(f)
 
     def __init__(self, enemy_name):

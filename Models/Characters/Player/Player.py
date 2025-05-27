@@ -6,9 +6,30 @@ from core import user_input, Color
 # Archetype Models
 from Models import Mage, Fighter, Rogue, Cleric
 
+classes = {
+            'fighter': Fighter(),
+            'mage': Mage(),
+            'rogue': Rogue(),
+            'cleric': Cleric()
+        }
+class_list = list(classes.keys())
+attributes = ['hp', 'attack', 'magic', 'defence', 'speed', 
+              'weapon', 'armor', 'ring', 'pendant']
 class Player:
-
-    def __init__(self):     
+    def __init__(self):
+        # --- Data ---
+        self.level = 1
+        self.archetype = ''
+        self.hp = 0
+        self.attack = 0
+        self.magic = 0
+        self.defence = 0
+        self.speed = 0   
+        self.weapon = ''
+        self.armor = ''
+        self.ring = ''
+        self.pendant = ''
+        self.inventory = []
         # --- Name Selection ---
         while True:
             print(f"What is your character's {Color.red('NAME')}?\n(8 Characters Max):")
@@ -24,17 +45,6 @@ class Player:
 
             self.name = name.capitalize()
             break
-        
-        # --- Class Selection ---
-        classes = {
-            'fighter': Fighter.stats(),
-            'mage': Mage.stats(),
-            'rogue': Rogue.stats(),
-            'cleric': Cleric.stats()
-        }
-        
-            # Different Available Classes
-        archetypes = ('fighter', 'mage', 'rogue', 'cleric')
         # Choose
         while True:
             print(f"Choose a class (1-4):\n"
@@ -48,27 +58,32 @@ class Player:
                 print(Color.red("Please enter a number between 1-4."))
                 continue
             
-            class_index = int(choice) - 1  # Convert to 0-based index
-            self.archetype = archetypes[class_index]
-            stats = classes[self.archetype]
-            
-            # Assign stats
+            class_index = int(choice) - 1
+            self.archetype = class_list[class_index]
+            data = classes[self.archetype].get_stats()
+
             self.level = 1
-            self.hp = stats["hp"]
-            self.attack = stats["attack"]
-            self.magic = stats["magic"]
-            self.defence = stats["defence"]
-            self.speed = stats["speed"]
+            self.__dict__.update(data)  # Assigns all stats at once
             break
         
-        print(f"\nCharacter created: {self.name} the {Color.get_class_color(self.archetype)}")
-        print(f"Stats:\nHP={self.hp}\nATK={self.attack}\nMAG={self.magic}\nDEF={self.defence}\nSPD={self.speed}")
+    # Level up player based on chosen class
+    @classmethod
+    def level_up(cls, player):
+        data = classes[player['archetype']].level_up_rolls()
+        player['level'] += 1
+        print(f"Congrats! {player['name']} is now level {player['level']}!")
+        
+        # Single loop to update all stats
+        for stat, value in data.items():
+            player['stats'][stat] += value
+        
+        return player
 
     # Convert player into json file.
     def to_dict(self):
         return {
             "name": self.name,
-            "class": self.archetype,
+            "archetype": self.archetype,
             "level": self.level,
             "stats": {
                 "hp": self.hp,
@@ -78,12 +93,12 @@ class Player:
                 "speed": self.speed
             },
             "equipment": {
-                "weapon": "",
-                "armor": "",
-                "ring": "",
-                "pendant": "",
+                "weapon": self.weapon,
+                "armor": self.armor,
+                "ring": self.ring,
+                "pendant": self.pendant,
             },
-            "inventory": {}
+            "inventory": []
         }
     
     def save_to_file(self):

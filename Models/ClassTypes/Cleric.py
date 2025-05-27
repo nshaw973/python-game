@@ -1,23 +1,28 @@
-class Cleric:
+from core import Roll
 
+class Cleric:
     def __init__(self):
         pass
-
-    @staticmethod
-    def stats():
-        return {
-        'hp': 13,
-        'attack': 10,
-        'magic': 1,
-        'defence': 7,
-        'speed': 3,
-        }
     
     @staticmethod
-    def starting_equipment():
+    def get_stats():
         return {
+            'hp': 10,
+            'attack': 5,
+            'magic': 7,
+            'defence': 10,
+            'speed': 3,
             'weapon': 'mace',
-            'armor': 'chain mail',
+            'armor': 'chainmail',
             'ring': '',
             'pendant': ''
+        }
+
+    def level_up_rolls(self):
+        return {
+            'hp': Roll(1,6).total,
+            'attack': Roll(1,6).total,
+            'magic': Roll(1,8).total,
+            'defence': Roll(1,8).total,
+            'speed': Roll(1,4).total,
         }
