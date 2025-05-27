@@ -4,20 +4,17 @@ class Mage:
         pass
 
     @staticmethod
-    def stats():
+    def create():
         return {
-        'hp': 13,
-        'attack': 10,
-        'magic': 1,
-        'defence': 7,
-        'speed': 3,
-        }
-    
-    @staticmethod
-    def starting_equipment():
-        return {
-            'weapon': 'staff',
-            'armor': 'robe',
-            'ring': '',
-            'pendant': ''
+        # stats
+        'hp': 10,
+        'attack': 3,
+        'magic': 12,
+        'defence': 3,
+        'speed': 7,
+        # starting equipment
+        'weapon': 'quarterstaff',
+        'armor': 'robe',
+        'ring': '',
+        'pendant': ''
         }

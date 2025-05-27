@@ -4,20 +4,17 @@ class Rogue:
         pass
 
     @staticmethod
-    def stats():
+    def create():
         return {
-        'hp': 13,
-        'attack': 10,
-        'magic': 1,
-        'defence': 7,
-        'speed': 3,
-        }
-    
-    @staticmethod
-    def strating_equipment():
-        return {
-            'weapon': 'dagger',
-            'armor': 'leather',
-            'ring': '',
-            'pendant': ''
+        # stats
+        'hp': 10,
+        'attack': 7,
+        'magic': 3,
+        'defence': 5,
+        'speed': 10,
+        # starting equipment
+        'weapon': 'dagger',
+        'armor': 'leather',
+        'ring': '',
+        'pendant': ''
         }

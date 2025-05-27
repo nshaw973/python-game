@@ -1,0 +1,18 @@
+{
+    "mace": {
+        "dice": "6",
+        "roll": "1"
+    },
+    "shortsword": {
+        "dice": "6",
+        "roll": "1"
+     },
+     "dagger": {
+        "dice": "4",
+        "roll": "1"
+     },
+     "quarterstaff": {
+        "dice": "6",
+        "roll": "1"
+     }
+}

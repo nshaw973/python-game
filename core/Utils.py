@@ -19,7 +19,9 @@ def exit_game():
 def top_break(str):
     print(f'<<<========||{str}||========>>>')
 
-def bottom_break(str):
-    length = len(str)
-    print(f'<<<========||{'=' * length}||========>>>')
+def bottom_break(title: str):
+    length = 0
+    if title:
+        length = len(title)
+    print(f'<<<========||{str("=" * length)}||========>>>')
  

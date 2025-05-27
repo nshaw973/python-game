@@ -18,22 +18,22 @@ def menu_screen():
         option = user_input()
         bottom_break('GAME')
         # Runs Function based on user input
-        match int(option):
-            case 1:
+        match option:
+            case '1':
                 # Creates New Character
                 player = create_character()
                 if player:
                     return player
                 else:
                     continue
-            case 2:
+            case '2':
                 # Iterates through save files, if none are found then returns to menu
                 player = select_character()
                 if player:
                     return player
                 else:
                     continue
-            case 0:
+            case '0':
                 exit_game()
                 continue
             case _:

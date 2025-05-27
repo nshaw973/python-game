@@ -4,20 +4,17 @@ class Fighter:
         pass
 
     @staticmethod
-    def stats():
+    def create():
         return {
-        'hp': 13,
-        'attack': 10,
+        # stats
+        'hp': 10,
+        'attack': 12,
         'magic': 1,
         'defence': 7,
-        'speed': 3,
-        }
-    
-    @staticmethod
-    def starting_equipment():
-        return {
-            'weapon': 'sword',
-            'armor': 'chain shirt',
-            'ring': '',
-            'pendant': ''
+        'speed': 5,
+        # starting equipment
+        'weapon': 'shortsword',
+        'armor': 'chain shirt',
+        'ring': '',
+        'pendant': ''
         }

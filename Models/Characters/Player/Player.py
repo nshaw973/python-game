@@ -27,10 +27,10 @@ class Player:
         
         # --- Class Selection ---
         classes = {
-            'fighter': Fighter.stats(),
-            'mage': Mage.stats(),
-            'rogue': Rogue.stats(),
-            'cleric': Cleric.stats()
+            'fighter': Fighter.create(),
+            'mage': Mage.create(),
+            'rogue': Rogue.create(),
+            'cleric': Cleric.create()
         }
         
             # Different Available Classes
@@ -50,15 +50,19 @@ class Player:
             
             class_index = int(choice) - 1  # Convert to 0-based index
             self.archetype = archetypes[class_index]
-            stats = classes[self.archetype]
+            data = classes[self.archetype]
             
-            # Assign stats
+            # Assign data
             self.level = 1
-            self.hp = stats["hp"]
-            self.attack = stats["attack"]
-            self.magic = stats["magic"]
-            self.defence = stats["defence"]
-            self.speed = stats["speed"]
+            self.hp = data["hp"]
+            self.attack = data["attack"]
+            self.magic = data["magic"]
+            self.defence = data["defence"]
+            self.speed = data["speed"]
+            self.weapon = data["weapon"]
+            self.armor = data["armor"]
+            self.ring = data["ring"]
+            self.pendant = data["pendant"]
             break
         
         print(f"\nCharacter created: {self.name} the {Color.get_class_color(self.archetype)}")
@@ -78,10 +82,10 @@ class Player:
                 "speed": self.speed
             },
             "equipment": {
-                "weapon": "",
-                "armor": "",
-                "ring": "",
-                "pendant": "",
+                "weapon": self.weapon,
+                "armor": self.armor,
+                "ring": self.ring,
+                "pendant": self.pendant,
             },
             "inventory": {}
         }

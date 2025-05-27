@@ -4,20 +4,17 @@ class Cleric:
         pass
 
     @staticmethod
-    def stats():
+    def create():
         return {
-        'hp': 13,
-        'attack': 10,
-        'magic': 1,
-        'defence': 7,
+        # stats
+        'hp': 10,
+        'attack': 5,
+        'magic': 7,
+        'defence': 10,
         'speed': 3,
-        }
-    
-    @staticmethod
-    def starting_equipment():
-        return {
-            'weapon': 'mace',
-            'armor': 'chain mail',
-            'ring': '',
-            'pendant': ''
+        # starting equipment
+        'weapon': 'mace',
+        'armor': 'chain mail',
+        'ring': '',
+        'pendant': ''
         }
