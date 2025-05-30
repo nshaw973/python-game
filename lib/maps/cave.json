@@ -1,7 +1,5 @@
 {
     "name": "Cave",
     "floors": 10,
-    "enemies": [
-        {"type": "bat"}
-    ]
+    "enemies": ["bat", "goblin"]
 }

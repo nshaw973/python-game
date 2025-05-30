@@ -1,0 +1,25 @@
+{
+    "name": "Herolad",
+    "archetype": "fighter",
+    "level": 1,
+    "exp": 0,
+    "req_exp": 10,
+    "stats": {
+        "hp": 10,
+        "attack": 5,
+        "magic": 7,
+        "defence": 10,
+        "speed": 3
+    },
+    "equipment": {
+        "weapon": "mace",
+        "armor": "chainmail",
+        "ring": "",
+        "pendant": ""
+    },
+    "inventory": [],
+    "dungeons": [
+        "forest",
+        "cave"
+    ]
+}

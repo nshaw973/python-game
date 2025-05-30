@@ -1,5 +1,6 @@
 from .view_stats import view_stats
 from .view_dungeons import view_dungeons
+from game.maps.load_map import load_map
 from core import user_input, exit_game, bottom_break, top_break, Color
 
 def game_menu(player):
@@ -17,7 +18,7 @@ def game_menu(player):
                 break
             case '2':
                 dungeon = view_dungeons(player)
-                
+                load_map(player, dungeon)
                 break
             case '3':
                 print('resting...')

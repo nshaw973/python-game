@@ -100,6 +100,8 @@ class Player:
             "name": self.name,
             "archetype": self.archetype,
             "level": self.level,
+            "exp": self.exp,
+            "req_exp": self.req_exp,
             "stats": {
                 "hp": self.hp,
                 "attack": self.attack,
@@ -113,7 +115,8 @@ class Player:
                 "ring": self.ring,
                 "pendant": self.pendant,
             },
-            "inventory": []
+            "inventory": [],
+            "dungeons": self.dungeons
         }
     
     # Save and Load character functions
